@@ -67,3 +67,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+# jQueryのgemを導入する
+gem "jquery-rails"
+# has_secure_passwordは内部で暗号化する際にbcryptと言うgemを使用
+gem 'bcrypt'
+gem 'rails-i18n'

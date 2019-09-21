@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    <!--登録結果をフィードバック-->
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
+    
     <%= yield %>
+    
+    <!--jqueryを使ってアラートの表示を消えるようにする  -->
+    <script>
+      $(function(){
+        $(".alert").fadeOut(5000);
+      });
+    </script>
+  
   </body>
 </html>
