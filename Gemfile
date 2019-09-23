@@ -72,3 +72,6 @@ gem "jquery-rails"
 # has_secure_passwordは内部で暗号化する際にbcryptと言うgemを使用
 gem 'bcrypt'
 gem 'rails-i18n'
+# 画像投稿機能
+gem "carrierwave"
+
