@@ -8,5 +8,11 @@ class User < ApplicationRecord
   #パスワード機能を実装
   has_secure_password
   
+  # パスワードバリデーション
   validates :password, length: { in: 8..32 }, format: { with: /\A[a-z0-9]+\z/ }
+
+  # リレーション
+  has_many :topics
+
+  
 end
