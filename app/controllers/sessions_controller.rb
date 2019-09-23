@@ -4,13 +4,15 @@ class SessionsController < ApplicationController
 
   def create
     # フォームから送信されたメールアドレスを取得し、一致するユーザがいるか検索
-    user = User.find_by(email: params[:session][:email])
+    user = User.find_by(session_params)
     
     # ユーザ名とパスワードが一致しているのか確かめる
-    if user && user.authenticate(params[:session][:password])
+    # パスワードの値を渡す :passwordキーを指定する必要がある
+    if user && user.authenticate(password_params[:password])
       login_in user
       redirect_to root_path, success: 'ログインに成功しました'
     else
+      binding.pry
       flash.now[:danger] = 'ログインに失敗しました'
       render :new
     end
@@ -35,4 +37,14 @@ class SessionsController < ApplicationController
     @current_user = nil
   end
   
+  # ストロングパラメーター
+  private
+  def session_params
+    params.require(:session).permit(:email)
+  end
+  
+  private
+  def password_params
+    params.require(:session).permit(:password)
+  end
 end
