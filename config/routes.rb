@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
   get 'sessions/new'
+  
   root 'pages#index'
   get 'pages/help'
-  
-  resources :users
   
   # ログインするためのフォーム
   get   '/login',   to: 'sessions#new'
@@ -13,4 +12,8 @@ Rails.application.routes.draw do
   
   # ログアウトでSessionを削除
   delete '/logout',  to: 'sessions#destroy'
+  
+  resources :users
+  resources :topics
+  
 end
