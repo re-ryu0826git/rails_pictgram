@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
       login_in user
       redirect_to root_path, success: 'ログインに成功しました'
     else
-      binding.pry
       flash.now[:danger] = 'ログインに失敗しました'
       render :new
     end
