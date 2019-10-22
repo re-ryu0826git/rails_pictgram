@@ -13,6 +13,7 @@ class User < ApplicationRecord
 
   # リレーション
   has_many :topics
+  has_many :favorites
 
   
 end

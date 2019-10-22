@@ -6,6 +6,7 @@ class Topic < ApplicationRecord
     
     # リレーション
     belongs_to :user
+    has_many :favorites
     
     # 画像をアップロードする
     mount_uploader :image, ImageUploader
