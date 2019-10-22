@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
+  # CSRF対策
   protect_from_forgery with: :exception
 
+  # フラッシュメッセージを許可
   add_flash_types :success, :info, :warning, :danger
 
   #application_controllerはcontrollerで共通で使用するコードを指定
