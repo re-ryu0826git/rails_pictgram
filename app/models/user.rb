@@ -14,6 +14,9 @@ class User < ApplicationRecord
   # リレーション
   has_many :topics
   has_many :favorites
+  
+  # throughを使用することで1人ユーザがいいねしたTopicデータ全てを取得
+  has_many :favorite_topics, through: :favorites, source: 'topic'
 
   
 end

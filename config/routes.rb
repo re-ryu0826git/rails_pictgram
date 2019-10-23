@@ -16,4 +16,8 @@ Rails.application.routes.draw do
   resources :users
   resources :topics
   
+  # お気に入り
+  get 'favorites/index'
+  post 'favorites', to: 'favorites#create'
+  
 end
