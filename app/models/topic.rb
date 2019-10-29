@@ -9,6 +9,9 @@ class Topic < ApplicationRecord
     has_many :favorites
     has_many :favorite_users, through: :favorites, source: 'user'
     
+    # コメント機能のリレーション
+    has_many :comments
+    
     # 画像をアップロードする
     mount_uploader :image, ImageUploader
 end

@@ -21,6 +21,12 @@ class TopicsController < ApplicationController
     end
   end
   
+  # 詳細画面
+  def show
+    @topic = Topic.find(params[:id])
+    @comments = @topic.comments.includes(:user)
+  end
+  
   private
   def topic_params
     params.require(:topic).permit(:image, :description)

@@ -25,7 +25,10 @@
                   <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
                 <% end %>
             <% end %>
-            <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+                <!--コメントできる画面へ移動-->
+                <%= link_to topic_path(topic), method: :get do %>
+                  <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+                <% end %>
             <p class="topic-text">
               <%= topic.description %>
             </p>

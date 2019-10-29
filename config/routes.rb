@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'comments/show'
   get 'sessions/new'
   
   root 'pages#index'
@@ -14,7 +15,10 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   resources :users
-  resources :topics
+  resources :topics do
+  # コメント ルーティング
+    resources :comments, only: [:new, :create]
+  end
   
   # お気に入り
   get 'favorites/index'
