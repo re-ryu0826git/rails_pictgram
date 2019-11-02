@@ -47,8 +47,14 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
+# production:
+#   <<: *default
+#   database: pictgram_production
+#   username: pictgram
+#   password: <%= ENV['PICTGRAM_DATABASE_PASSWORD'] %>
+# 本番環境データベース設定をPostgreSQL用に書き換え
 production:
-  <<: *default
-  database: pictgram_production
-  username: pictgram
-  password: <%= ENV['PICTGRAM_DATABASE_PASSWORD'] %>
+<<: *default
+adapter: postgresql
+encoding: unicode
+pool: 5
