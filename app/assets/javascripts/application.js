@@ -10,10 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// jqueryは最初
+// jQueryを使えるように宣言
 //= require jquery
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require bootstrap-sprockets
+// javascriptを以外を読み込む
 //= require_tree .
-// jQueryを使えるように宣言
+
