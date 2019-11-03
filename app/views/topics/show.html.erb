@@ -7,10 +7,24 @@
               <%= @topic.user.name %>
             </h2>
             <%= image_tag @topic.image.url %>
-            <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
-              <%= link_to new_topic_comment_path(@topic.id) do %>
-                <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
-              <% end %>
+            <% if @topic.favorite_users.include?(current_user) %>
+              <!--ハートマークにリンク設定-->
+              <!--params[:topic_id]にtopic.idが入る-->
+                <%= link_to favorites_path(topic_id: @topic.id), method: :delete do %>
+                  <!--いいねボタンされている-->
+                  <%= image_tag 'icons/heart.png', class: 'topic-index-icon-red' %>
+                <% end %>
+                <%= @topic.favorite_users.count %>
+            <% else %>
+                <%= link_to favorites_path(topic_id: @topic.id), method: :post do %>
+                  <!--いいねボタンされていない-->
+                  <%= image_tag 'icons/heart-black.png', class: 'topic-index-icon' %>
+                <% end %>
+            <% end %>
+            <!--コメントできる画面へ移動-->
+            <%= link_to new_topic_comment_path(@topic), method: :get do %>
+              <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+                <% end %>
             <p class="topic-text">
               <%= @topic.description %>
             </p>
@@ -23,3 +37,5 @@
       </div>
   </div>
 </div>
+
+  

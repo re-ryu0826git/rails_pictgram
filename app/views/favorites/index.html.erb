@@ -19,10 +19,18 @@
               <% end %>
                 <%= topic.favorite_users.count %>
             <% end %>
-            <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+            <!--コメントできる画面へ移動-->
+            <%= link_to new_topic_comment_path(topic), method: :get do %>
+              <%= image_tag 'icons/comment.png', class: 'topic-index-icon' %>
+            <% end %>
             <p class="topic-text">
               <%= topic.description %>
             </p>
+            <h3>コメント</h3>
+            <!--アソシエーションでコメントを表示-->
+            <% topic.comments.each do |comment| %>
+              <p class="topic-text"><%= comment.content %></p>
+            <% end %>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @comment.topic_id = params[:topic_id]
     
     if @comment.save
-      redirect_to topic_path(@comment.topic_id), success: 'コメント入力に成功しました'
+      redirect_to topics_path, success: 'コメント入力に成功しました'
     else
       redirect_to topics_path, danger: 'コメントが空です'
     end
