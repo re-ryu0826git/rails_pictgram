@@ -24,7 +24,6 @@ class TopicsController < ApplicationController
   # 詳細画面
   def show
     @topic = Topic.find(params[:id])
-    @comments = @topic.comments.includes(:user)
   end
   
   private
